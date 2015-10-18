@@ -1,2 +1,2 @@
 # InterviewQuestions
-A collection of solutions to interview questions
+A collection of "production" ready solutions to various interview questions.
