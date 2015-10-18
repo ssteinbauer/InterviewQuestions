@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberToWord", "NumberToWord\NumberToWord.csproj", "{940808CE-21F5-4DE0-968C-D52B6674A6B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.NumberToWord", "Tests.NumberToWord\Tests.NumberToWord.csproj", "{02A8C876-9EC7-426E-9E6B-2C2654072448}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{940808CE-21F5-4DE0-968C-D52B6674A6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{940808CE-21F5-4DE0-968C-D52B6674A6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{940808CE-21F5-4DE0-968C-D52B6674A6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{940808CE-21F5-4DE0-968C-D52B6674A6B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A8C876-9EC7-426E-9E6B-2C2654072448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A8C876-9EC7-426E-9E6B-2C2654072448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A8C876-9EC7-426E-9E6B-2C2654072448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A8C876-9EC7-426E-9E6B-2C2654072448}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
