@@ -1,0 +1,146 @@
+	describe('search', function() {
+
+		describe('swap', function() {
+			
+			it('does not destory information if the two numbers to swap are equal', function() {
+				var input = [10, 10];
+				sort.swap(input, 0, 1);
+
+				expect(input[0]).toBe(10);
+				expect(input[1]).toBe(10);
+			});
+
+			it('can swap positives without an explicit temp variable', function() {
+				var input = [5, 4];
+				sort.swap(input, 0, 1);
+
+				expect(input[0]).toBe(4);
+				expect(input[1]).toBe(5);
+			});
+
+			it('can swap positive and negative without an explicit temp variable', function() {
+				var input = [5, -4];
+				sort.swap(input, 0, 1);
+
+				expect(input[0]).toBe(-4);
+				expect(input[1]).toBe(5);
+			});
+
+			it('can swap positive and negative without an explicit temp variable', function() {
+				var input = [-5, -4];
+				sort.swap(input, 0, 1);
+
+				expect(input[0]).toBe(-4);
+				expect(input[1]).toBe(-5);
+			});
+
+		});
+
+		var input = [7, 3, 10, 2, 0, 1, 9, 8, 5, 4, 6],
+			expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+		beforeEach(function(){
+			input = [7, 3, 10, 2, 0, 1, 9, 8, 5, 4, 6];
+		});
+
+		describe('bubble', function() {
+			it('should sort an array', function() {
+				sort.bubble(input);
+				expect(input).toEqual(expected);
+			});
+		});
+
+		describe('quicksort', function() {
+			it('should sort an array', function() {	
+				sort.quicksort(input);
+				expect(input).toEqual(expected);
+			});
+		});
+		
+	});
+
+perceptum.search = (function() {
+
+	var swap = function(input, i, j) {
+		// [5, 4] => [9, 4] => [9, 5] => [4, 5]
+		input[i] = input[j] + input[i];
+		input[j] = input[i] - input[j];
+		input[i] = input[i] - input[j];
+	};
+
+	var quicksort1 = function(input, lo, hi) {
+		if (lo < hi) {
+			var p = hoarePartition(input, lo, hi);
+			quicksort1(input, lo, p);
+			quicksort1(input, p + 1, hi); 
+		}
+	};
+
+	var lomutoPartition = function(input, lo, hi) {
+		var i = lo,
+			pivot = input[hi];
+
+		for(var j = lo; j < hi; j++) {
+
+			if (input[j] <= pivot) {
+				swap(input, i, j);
+				i ++;	
+			}
+		}
+
+		swap(input, i, hi);
+		return i;
+	};
+
+	var hoarePartition = function(input, lo, hi) {
+		var pivot = input[lo],
+			i = lo - 1,
+			j = hi + 1;
+
+		while(true) {
+			do {
+				i++;
+			} while(input[i] < pivot);
+
+			do {
+				j--;
+			} while(input[j] > pivot);
+
+			if (i < j) {
+				swap(input, i, j);
+			} else {
+				return j;
+			}
+		}
+	};
+
+	return {
+		
+		swap: function(input, i, j) {
+			swap(input, i, j);	
+		},
+
+		bubble: function(input) {
+			var me = this,
+					 length = input.length,
+					 sortedAbove = input.length;
+
+			do {
+				sortedAbove = 0;
+				for(var i = 1; i < length; i++) {
+					if (input[i - 1] > input[i]) {
+						me.swap(input, i - 1, i);
+						sortedAbove = i;
+					}
+				}
+				length = sortedAbove;
+			} while (length > 0);
+		},
+
+		quicksort: function(input) {
+			quicksort1(input, 0, input.length - 1);
+		}
+
+	};
+
+})();
